@@ -47,6 +47,25 @@ body {
     background-image: none;
     background-size: 22px 22px;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* Honeycomb border pattern */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: url('assets/honeycomb.svg') repeat;
+    background-size: 60px 52px; /* size of one hexagon pattern */
+    opacity: 0.2; /* subtle overlay */
+    z-index: 0;
+}
+
+/* Ensure main content sits above the pattern */
+.container, .hero, .about, .barbers, .services, .reviews, .hours-location, .footer {
+    position: relative;
+    z-index: 1;
 }
 
 /* Subtle paper texture via dot grid keeps it warm, not clinical */
