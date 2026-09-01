@@ -6,17 +6,17 @@
 }
 
 :root {
-    /* Warm barbershop palette: cream paper, ink, oxblood, brass */
-    --paper: #f3ede3;
-    --paper-deep: #eae2d3;
-    --card: #faf7f0;
-    --ink: #211c15;
-    --ink-soft: #57503f;
-    --ink-faint: #8a8172;
-    --red: #8e2f22;
-    --red-deep: #6f2318;
-    --brass: #a07c3f;
-    --line: #ddd3c0;
+    /* High-contrast black/white/red palette */
+    --paper: #000000; /* black background */
+    --paper-deep: #111111; /* slightly lighter for sections */
+    --card: #222222; /* dark card background */
+    --ink: #ffffff; /* white primary text */
+    --ink-soft: #bbbbbb; /* softer white */
+    --ink-faint: #888888; /* faint text */
+    --red: #ff0000; /* vivid red */
+    --red-deep: #b20000; /* darker red for hover */
+    --brass: #ff0000; /* use red for brass */
+    --line: #333333; /* subtle lines */
 
     --radius-sm: 6px;
     --radius-md: 10px;
