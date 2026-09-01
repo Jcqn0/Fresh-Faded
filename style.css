@@ -31,7 +31,7 @@
 
 /* Helper background class */
 .marble-bg {
-    background-image: url('../assets/marble-card-bg.webp');
+    background-image: url("assets/marble-card-bg.webp");
     background-size: cover;
     background-position: center;
     background-color: rgba(142,47,34,0.05);
@@ -573,6 +573,10 @@ h1, h2, h3 {
     padding: 2.5rem;
     position: relative;
     animation: modalIn 0.25s ease-out;
+}
+
+.modal-content {
+    background-image: url("assets/marble-modal-bg.webp");
 }
 
 @keyframes modalIn {
