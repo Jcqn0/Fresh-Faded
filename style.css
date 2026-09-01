@@ -126,6 +126,11 @@ h1, h2, h3 {
     z-index: -1; /* behind hero content */
     /* Triangle covering bottom‑right corner, right‑angle at corner, non‑isosceles */
     clip-path: polygon(100% 0%, 100% 100%, 30% 100%);
+    /* Fade opacity towards the hypotenuse */
+    -webkit-mask-image: linear-gradient(to top left, black 0%, transparent 100%);
+    mask-image: linear-gradient(to top left, black 0%, transparent 100%);
+    mask-size: cover;
+    mask-repeat: no-repeat;
 }
 
 /* Ensure hero inner elements appear above the overlay */
