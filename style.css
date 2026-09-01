@@ -517,13 +517,13 @@ h1, h2, h3 {
 
 /* ============ Footer ============ */
 .footer {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--paper);
+    color: var(--ink);
     padding: 4rem 0 2rem;
 }
 
 .footer-info h3 {
-    color: var(--paper);
+    color: var(--ink);
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
 }
@@ -545,7 +545,7 @@ h1, h2, h3 {
 .footer .cta-button {
     background: var(--paper);
     color: var(--ink);
-    border-color: var(--paper);
+    border-color: var(--ink);
 }
 
 .footer .cta-button:hover {
