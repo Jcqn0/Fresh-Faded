@@ -766,7 +766,8 @@ h1, h2, h3 {
     font-weight: 600;
     padding: 0.55rem 0.25rem;
     text-align: center;
-    background: var(--paper);
+    background: var(--card); /* lighter than modal bg */
+    color: var(--ink); /* ensure readable */
     border: 1.5px solid var(--line);
     border-radius: var(--radius-sm);
     cursor: pointer;
