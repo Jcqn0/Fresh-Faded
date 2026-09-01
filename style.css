@@ -579,6 +579,14 @@ h1, h2, h3 {
     background-image: url("assets/marble-modal-bg.webp");
 }
 
+.marble-bg {
+    background-image: url("assets/marble-card-bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(142,47,34,0.05);
+    background-blend-mode: overlay;
+}
+
 @keyframes modalIn {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
