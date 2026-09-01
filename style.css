@@ -111,6 +111,22 @@ h1, h2, h3 {
     background:
         linear-gradient(180deg, rgba(142, 47, 34, 0.05), transparent 40%),
         var(--paper);
+    position: relative; /* enable pseudo-element positioning */
+}
+
+/* Grey honeycomb overlay on bottom‑right of the hero section */
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    pointer-events: none;
+    background: url('assets/honeycomb-grey.svg') repeat;
+    background-size: 60px 52px;
+    opacity: 0.15;
+    z-index: 0;
 }
 
 .hero-content {
