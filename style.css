@@ -62,6 +62,22 @@ body::before {
     z-index: 0;
 }
 
+/* Grey honeycomb overlay for bottom‑left quadrant */
+body::after {
+    content: "";
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    pointer-events: none;
+    background: url('assets/honeycomb-grey.svg') repeat;
+    background-size: 60px 52px;
+    opacity: 0.15; /* lighter than top overlay */
+    z-index: 0;
+    /* Ensure it only covers the bottom‑left quarter */
+}
+
 /* Ensure main content sits above the pattern */
 .container, .hero, .about, .barbers, .services, .reviews, .hours-location, .footer {
     position: relative;
