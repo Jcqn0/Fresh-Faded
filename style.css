@@ -29,6 +29,15 @@
     --shadow-medium: 0 2px 4px rgba(33, 28, 21, 0.08), 0 12px 32px rgba(33, 28, 21, 0.12);
 }
 
+/* Helper background class */
+.marble-bg {
+    background-image: url('../assets/marble-card-bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(142,47,34,0.05);
+    background-blend-mode: overlay;
+}
+
 /* Original barber-pole definition removed – using updated version later in file */
 
 html {
@@ -282,7 +291,7 @@ h1, h2, h3 {
     margin-top: 2rem;
 }
 
-.barber-card {
+.barber-card, .marble-bg {
     background: var(--card);
     border: 2px solid var(--ink);
     border-radius: var(--radius-md);
@@ -366,7 +375,7 @@ h1, h2, h3 {
     margin-top: 2rem;
 }
 
-.service-tile {
+.service-tile, .marble-bg {
     background: var(--card);
     border: 1.5px solid var(--line);
     border-radius: var(--radius-md);
@@ -553,7 +562,7 @@ h1, h2, h3 {
     display: block;
 }
 
-.modal-content {
+.modal-content, .marble-bg {
     background: var(--card);
     border: 2px solid var(--ink);
     border-radius: var(--radius-lg);
@@ -842,7 +851,7 @@ h1, h2, h3 {
         padding: 4rem 0;
     }
 
-    .modal-content {
+    .modal-content, .marble-bg {
         margin: 1rem auto;
         padding: 1.75rem;
         width: 94%;
