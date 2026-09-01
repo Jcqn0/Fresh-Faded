@@ -1,0 +1,47 @@
+{
+  "expectations": [
+    {
+      "text": "No generic fonts (Inter, Roboto, Arial, Poppins, Space Grotesk) as display/body face",
+      "passed": true,
+      "evidence": "font-family generic matches: none"
+    },
+    {
+      "text": "No cream/warm off-white background family and no terracotta/coral accent family",
+      "passed": true,
+      "evidence": "cream hits: none; terracotta hits: none"
+    },
+    {
+      "text": "No purple/indigo gradients",
+      "passed": true,
+      "evidence": "gradient matches: none"
+    },
+    {
+      "text": "No 'transition: all' declarations",
+      "passed": true,
+      "evidence": "0 'transition: all' occurrences"
+    },
+    {
+      "text": "Mobile responsive (media queries and/or fluid clamp() sizing present)",
+      "passed": true,
+      "evidence": "@media: 7, clamp(): 9"
+    },
+    {
+      "text": "Includes prefers-reduced-motion handling",
+      "passed": true,
+      "evidence": "prefers-reduced-motion present: True"
+    },
+    {
+      "text": "Context-specific content (shaper/waitlist/Ventura details), not interchangeable startup copy",
+      "passed": true,
+      "evidence": "context keywords found: ventura, shaper, shape, waitlist, board"
+    }
+  ],
+  "passed": 7,
+  "total": 7,
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  }
+}

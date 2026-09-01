@@ -1,0 +1,403 @@
+{
+  "metadata": {
+    "skill_name": "frontend-design-complete",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-07-06T05:10:11Z",
+    "evals_run": [
+      0,
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.9090909090909091,
+        "passed": 10,
+        "failed": 1,
+        "total": 11,
+        "time_seconds": 153.6,
+        "tokens": 35703,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Report gives an explicit overall verdict (AI-generated likelihood High, or equivalent score/rating)",
+          "passed": true,
+          "evidence": "Under a '## Verdict' heading: 'Yes \u2014 your cofounder is right. This isn't a borderline case.' \u2014 an explicit, unambiguous overall verdict, though expressed as yes/no rather than a likelihood score."
+        },
+        {
+          "text": "Flags the cream/warm off-white background family (#faf8f5 / #fdfcfb)",
+          "passed": true,
+          "evidence": "Findings table: '`background: #faf8f5` (body), `#fdfcfb` (navbar, cards)' ... 'Cream/off-white background \u2014 the canonical \"cozy webapp\" base'."
+        },
+        {
+          "text": "Flags the terracotta/coral accent family (#c45c48 / #e07860)",
+          "passed": true,
+          "evidence": "Findings table: '`#c45c48`, `#e07860` accents everywhere ... Terracotta/coral/rust \u2014 the most overused AI accent family'."
+        },
+        {
+          "text": "Flags Inter as a generic font choice",
+          "passed": true,
+          "evidence": "Typography section: '**Inter, and only Inter** (`index.html:8`, `styles.css:8`) \u2014 explicitly the most generic possible choice.'"
+        },
+        {
+          "text": "Flags pill-shaped buttons/badges (border-radius: 9999px)",
+          "passed": true,
+          "evidence": "'**Pill everything:** `border-radius: 9999px` on both buttons and the badge (`styles.css:51, 69, 105`); `rounded-full` on the pricing button and \"Most Popular\" pill'."
+        },
+        {
+          "text": "Flags 'transition: all 0.3s ease' as a generic motion pattern",
+          "passed": true,
+          "evidence": "'Combined with `transition: all 0.3s ease` repeated verbatim six times \u2014 motion by reflex, not by intent.'"
+        },
+        {
+          "text": "Flags the purple/indigo gradient Tailwind classes in PricingCard.jsx (scans JSX, not just CSS)",
+          "passed": true,
+          "evidence": "Findings table: '`from-purple-500 to-indigo-600` popular card + `from-purple-500 to-indigo-500` button | `PricingCard.jsx:6, 31` | The purple-gradient-on-white clich\u00e9'."
+        },
+        {
+          "text": "Flags emoji used as icons and/or sparkle-emoji AI branding",
+          "passed": true,
+          "evidence": "'**Emoji as icons:** \u2728 logo, \ud83d\ude80 badge, \u26a1\ud83e\udd1d\ud83d\udcca\u2728 feature icons, \u2705 pricing checkmarks, \u2764\ufe0f footer ... the loudest \"no designer touched this\" signal'."
+        },
+        {
+          "text": "Cites specific evidence (file names with line numbers or selectors/classes) for findings",
+          "passed": true,
+          "evidence": "Line-numbered citations throughout, e.g. '`styles.css:9, 19, 146`', '`styles.css:89\u201391`', '`PricingCard.jsx:6, 31`', '`index.html:8`'."
+        },
+        {
+          "text": "Proposes a concrete redesign direction with named fonts and specific color values, not vague advice like 'be bold'",
+          "passed": false,
+          "evidence": "Specific color values are given ('#0f1115 ink on #fafafa', 'cobalt #1d4ed8-family blue'), but no fonts are named: the typography advice is only 'Pair a characterful display face ... e.g., a sharp grotesque or a serif with real personality' \u2014 no specific typeface names anywhere in the report."
+        },
+        {
+          "text": "Delivers a report without rewriting the site's files",
+          "passed": true,
+          "evidence": "outputs/ contains only audit-report.md; no rewritten index.html, styles.css, or PricingCard.jsx. The report is an audit with recommendations, not a rewrite."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 155.3,
+        "tokens": 39255,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Overall verdict is Low likelihood / does NOT read as AI-generated",
+          "passed": true,
+          "evidence": "Short answer up front: 'Does this read as generic or AI-generated? Short answer: No.' Bottom line restates: 'This does **not** read as AI-generated.'"
+        },
+        {
+          "text": "Recognizes the committed editorial/print aesthetic as intentional (font pairing, sharp geometry, drop cap, marginalia, or colophon mentioned)",
+          "passed": true,
+          "evidence": "Section 3: 'A single committed concept, carried everywhere... a drop cap; a margin note keyed with \u203b; a colophon that names the typefaces.' Also notes 'Zero border-radius... Everything is sharp, square, print-like' and the Libre Caslon Text + IBM Plex Mono pairing as 'a *system*, not a random pairing.'"
+        },
+        {
+          "text": "Does not flag the serif font or the deep-red accent as AI-slop false positives",
+          "passed": true,
+          "evidence": "The accent is defended, not flagged: '#a41f13, a deep oxblood/editorial red... meaningfully darker and cooler than the coral/terracotta family, and it belongs to a real print lineage (rubrication).' The serif is praised: 'Libre Caslon Text (a bookish, slightly sharp Caslon revival)... purposeful pairing.'"
+        },
+        {
+          "text": "Does not recommend a wholesale redesign \u2014 only minor refinements",
+          "passed": true,
+          "evidence": "Section 4 frames all findings as minor: 'None of these undermine the design's distinctiveness; they are polish and accessibility items' (preconnect, skip link, touch targets, placeholder links, meta tags). No redesign suggested anywhere."
+        },
+        {
+          "text": "Uses a structured audit format with evidence for any findings",
+          "passed": true,
+          "evidence": "Structured sections (Verdict at a Glance table, item-by-item AI-slop checklist, What Is Working, Honest Gaps, Bottom Line) with concrete evidence: measured contrast ratios (17.98:1, 7.54:1), specific CSS values (clamp(4rem, 14vw, 10rem), --measure: 62ch, padding-block: 0.5rem)."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 902.5,
+        "tokens": 68771,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No generic fonts (Inter, Roboto, Arial, Poppins, Space Grotesk) as display/body face",
+          "passed": true,
+          "evidence": "font-family generic matches: none"
+        },
+        {
+          "text": "No cream/warm off-white background family and no terracotta/coral accent family",
+          "passed": true,
+          "evidence": "cream hits: none; terracotta hits: none"
+        },
+        {
+          "text": "No purple/indigo gradients",
+          "passed": true,
+          "evidence": "gradient matches: none"
+        },
+        {
+          "text": "No 'transition: all' declarations",
+          "passed": true,
+          "evidence": "0 'transition: all' occurrences"
+        },
+        {
+          "text": "Mobile responsive (media queries and/or fluid clamp() sizing present)",
+          "passed": true,
+          "evidence": "@media: 7, clamp(): 9"
+        },
+        {
+          "text": "Includes prefers-reduced-motion handling",
+          "passed": true,
+          "evidence": "prefers-reduced-motion present: True"
+        },
+        {
+          "text": "Context-specific content (shaper/waitlist/Ventura details), not interchangeable startup copy",
+          "passed": true,
+          "evidence": "context keywords found: ventura, shaper, shape, waitlist, board"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 11,
+        "failed": 0,
+        "total": 11,
+        "time_seconds": 191.8,
+        "tokens": 45722,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Report gives an explicit overall verdict (AI-generated likelihood High, or equivalent score/rating)",
+          "passed": true,
+          "evidence": "Verdict section: '**AI-generated look likelihood: High (score 32 \u2014 5 Tier-1 signals, 8 Tier-2, 1 Tier-3)**' \u2014 explicit likelihood rating plus a numeric score."
+        },
+        {
+          "text": "Flags the cream/warm off-white background family (#faf8f5 / #fdfcfb)",
+          "passed": true,
+          "evidence": "Evidence table: 'Cream/warm off-white backgrounds (`#faf8f5`, `#fdfcfb`, `#fdf6f3`) | 1 | `styles.css:9` (body), `:19` (navbar), `:146` (cards)'."
+        },
+        {
+          "text": "Flags the terracotta/coral accent family (#c45c48 / #e07860)",
+          "passed": true,
+          "evidence": "Evidence table: 'Terracotta/coral accent family (`#c45c48` \u00d76, `#e07860` \u00d72) | 1 | `styles.css:26, 43, 47, 66, 89, 103`'."
+        },
+        {
+          "text": "Flags Inter as a generic font choice",
+          "passed": true,
+          "evidence": "Evidence table: 'Generic font as the only face (Inter) | 1 | `index.html:8`, `styles.css:8`'; intentionality test: 'one generic sans (Inter, 4 weights) does everything from logo to body'."
+        },
+        {
+          "text": "Flags pill-shaped buttons/badges (border-radius: 9999px)",
+          "passed": true,
+          "evidence": "Evidence table: 'Pill-shaped buttons and badges (`border-radius: 9999px`, `rounded-full`) | 2 | `styles.css:51, 69, 105`; `PricingCard.jsx:11, 28`'."
+        },
+        {
+          "text": "Flags 'transition: all 0.3s ease' as a generic motion pattern",
+          "passed": true,
+          "evidence": "Evidence table: '`transition: all 0.3s ease` as the only motion idea (\u00d76)'; intentionality test calls it 'the only motion idea, repeated six times'."
+        },
+        {
+          "text": "Flags the purple/indigo gradient Tailwind classes in PricingCard.jsx (scans JSX, not just CSS)",
+          "passed": true,
+          "evidence": "Evidence table: 'Purple/indigo gradient (`from-purple-500 to-indigo-600`) | 1 | `PricingCard.jsx:6, 31`'; verdict calls it 'a purple-to-indigo Tailwind gradient card'."
+        },
+        {
+          "text": "Flags emoji used as icons and/or sparkle-emoji AI branding",
+          "passed": true,
+          "evidence": "Two evidence rows: 'Sparkle/rocket emoji branding AI features (\u2728 logo, \ud83d\ude80 badge, \u2728 \"AI-Powered\", \u2728 \"Most Popular\")' and 'Emoji as feature icons (\u26a1 \ud83e\udd1d \ud83d\udcca \u2728, \u2705 checklist bullets)'."
+        },
+        {
+          "text": "Cites specific evidence (file names with line numbers or selectors/classes) for findings",
+          "passed": true,
+          "evidence": "Every evidence-table row carries file:line citations, e.g. '`styles.css:9`', '`index.html:13, 24, 55`', '`PricingCard.jsx:6, 31`'."
+        },
+        {
+          "text": "Proposes a concrete redesign direction with named fonts and specific color values, not vague advice like 'be bold'",
+          "passed": true,
+          "evidence": "Option A names fonts ('display **Familjen Grotesk** 600 + body/UI **IBM Plex Sans**, with **IBM Plex Mono** for numbers') and specific hexes ('paper `#f2f3f5`, ink `#101318`, hairline `#d4d8de`, accent cobalt `#1f3aff`'); Option B gives a full dark palette ('bg `#0c0f13` ... accent signal-green `#2fe08c`')."
+        },
+        {
+          "text": "Delivers a report without rewriting the site's files",
+          "passed": true,
+          "evidence": "outputs/ contains only audit-report.md; no modified index.html, styles.css, or PricingCard.jsx. Fixes are proposed as a numbered fix list, not implemented."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 304.5,
+        "tokens": 47466,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Overall verdict is Low likelihood / does NOT read as AI-generated",
+          "passed": true,
+          "evidence": "Verdict section states: 'AI-generated look likelihood: Low (score 0)' and 'This does not read as generic or AI-generated \u2014 it reads as a designed editorial object with a clear point of view.'"
+        },
+        {
+          "text": "Recognizes the committed editorial/print aesthetic as intentional (font pairing, sharp geometry, drop cap, marginalia, or colophon mentioned)",
+          "passed": true,
+          "evidence": "'Intentionality test: passes 5/5' covering the Libre Caslon Text / IBM Plex Mono pairing ('editorial voice vs. apparatus'), 'Consistent geometry \u2014 zero radii, hairline 1px rules... heavy 6px rules,' plus 'a drop cap via ::first-letter... a baker's-math marginalia note with a \u203b reference mark... a colophon that names its own typefaces.'"
+        },
+        {
+          "text": "Does not flag the serif font or the deep-red accent as AI-slop false positives",
+          "passed": true,
+          "evidence": "Explicitly clears them: 'accent is a deep blood red #a41f13... well outside the coral zone' and 'the familiar ingredients here (a serif, a red accent, white background) count as editorial vocabulary, not defaults.'"
+        },
+        {
+          "text": "Does not recommend a wholesale redesign \u2014 only minor refinements",
+          "passed": true,
+          "evidence": "Recommended direction section: 'None needed \u2014 the direction is already committed and executed. Do not redesign this. The items below are pre-share polish, not aesthetic fixes' (placeholder links, favicon, meta tags, minor grid/clamp guards)."
+        },
+        {
+          "text": "Uses a structured audit format with evidence for any findings",
+          "passed": true,
+          "evidence": "Structured sections (Verdict, Evidence, What's already working, Recommended direction, Fix list) with a tiered signal-check evidence table citing file:line references (e.g. '#a41f13 (styles.css:4)', 'border-inline-start: 1px solid (styles.css:163)'), a hex census, and contrast ratios (~17.5:1, ~7.5:1)."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No generic fonts (Inter, Roboto, Arial, Poppins, Space Grotesk) as display/body face",
+          "passed": true,
+          "evidence": "font-family generic matches: none"
+        },
+        {
+          "text": "No cream/warm off-white background family and no terracotta/coral accent family",
+          "passed": true,
+          "evidence": "cream hits: none; terracotta hits: none"
+        },
+        {
+          "text": "No purple/indigo gradients",
+          "passed": true,
+          "evidence": "gradient matches: none"
+        },
+        {
+          "text": "No 'transition: all' declarations",
+          "passed": true,
+          "evidence": "0 'transition: all' occurrences"
+        },
+        {
+          "text": "Mobile responsive (media queries and/or fluid clamp() sizing present)",
+          "passed": true,
+          "evidence": "@media: 6, clamp(): 27"
+        },
+        {
+          "text": "Includes prefers-reduced-motion handling",
+          "passed": true,
+          "evidence": "prefers-reduced-motion present: True"
+        },
+        {
+          "text": "Context-specific content (shaper/waitlist/Ventura details), not interchangeable startup copy",
+          "passed": true,
+          "evidence": "context keywords found: ventura, shaper, shape, waitlist, board"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "old_skill": {
+      "pass_rate": {
+        "mean": 0.9697,
+        "stddev": 0.0525,
+        "min": 0.9091,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 403.8,
+        "stddev": 431.8877,
+        "min": 153.6,
+        "max": 902.5
+      },
+      "tokens": {
+        "mean": 47909.6667,
+        "stddev": 18153.5285,
+        "min": 35703,
+        "max": 68771
+      }
+    },
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 165.4333,
+        "stddev": 153.9528,
+        "min": 0.0,
+        "max": 304.5
+      },
+      "tokens": {
+        "mean": 31062.6667,
+        "stddev": 26915.1877,
+        "min": 0,
+        "max": 47466
+      }
+    },
+    "delta": {
+      "pass_rate": "-0.03",
+      "time_seconds": "+238.4",
+      "tokens": "+16847"
+    }
+  },
+  "notes": []
+}

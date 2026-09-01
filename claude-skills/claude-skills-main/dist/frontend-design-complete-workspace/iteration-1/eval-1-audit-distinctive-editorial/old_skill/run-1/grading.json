@@ -1,0 +1,35 @@
+{
+  "expectations": [
+    {
+      "text": "Overall verdict is Low likelihood / does NOT read as AI-generated",
+      "passed": true,
+      "evidence": "Short answer up front: 'Does this read as generic or AI-generated? Short answer: No.' Bottom line restates: 'This does **not** read as AI-generated.'"
+    },
+    {
+      "text": "Recognizes the committed editorial/print aesthetic as intentional (font pairing, sharp geometry, drop cap, marginalia, or colophon mentioned)",
+      "passed": true,
+      "evidence": "Section 3: 'A single committed concept, carried everywhere... a drop cap; a margin note keyed with \u203b; a colophon that names the typefaces.' Also notes 'Zero border-radius... Everything is sharp, square, print-like' and the Libre Caslon Text + IBM Plex Mono pairing as 'a *system*, not a random pairing.'"
+    },
+    {
+      "text": "Does not flag the serif font or the deep-red accent as AI-slop false positives",
+      "passed": true,
+      "evidence": "The accent is defended, not flagged: '#a41f13, a deep oxblood/editorial red... meaningfully darker and cooler than the coral/terracotta family, and it belongs to a real print lineage (rubrication).' The serif is praised: 'Libre Caslon Text (a bookish, slightly sharp Caslon revival)... purposeful pairing.'"
+    },
+    {
+      "text": "Does not recommend a wholesale redesign \u2014 only minor refinements",
+      "passed": true,
+      "evidence": "Section 4 frames all findings as minor: 'None of these undermine the design's distinctiveness; they are polish and accessibility items' (preconnect, skip link, touch targets, placeholder links, meta tags). No redesign suggested anywhere."
+    },
+    {
+      "text": "Uses a structured audit format with evidence for any findings",
+      "passed": true,
+      "evidence": "Structured sections (Verdict at a Glance table, item-by-item AI-slop checklist, What Is Working, Honest Gaps, Bottom Line) with concrete evidence: measured contrast ratios (17.98:1, 7.54:1), specific CSS values (clamp(4rem, 14vw, 10rem), --measure: 62ch, padding-block: 0.5rem)."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  }
+}

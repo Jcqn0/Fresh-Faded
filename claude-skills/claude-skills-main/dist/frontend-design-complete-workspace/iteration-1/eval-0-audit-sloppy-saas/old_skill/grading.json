@@ -1,0 +1,59 @@
+{
+  "expectations": [
+    {
+      "text": "Report gives an explicit overall verdict (AI-generated likelihood High, or equivalent score/rating)",
+      "passed": true,
+      "evidence": "Under a '## Verdict' heading: 'Yes — your cofounder is right. This isn't a borderline case.' — an explicit, unambiguous overall verdict, though expressed as yes/no rather than a likelihood score."
+    },
+    {
+      "text": "Flags the cream/warm off-white background family (#faf8f5 / #fdfcfb)",
+      "passed": true,
+      "evidence": "Findings table: '`background: #faf8f5` (body), `#fdfcfb` (navbar, cards)' ... 'Cream/off-white background — the canonical \"cozy webapp\" base'."
+    },
+    {
+      "text": "Flags the terracotta/coral accent family (#c45c48 / #e07860)",
+      "passed": true,
+      "evidence": "Findings table: '`#c45c48`, `#e07860` accents everywhere ... Terracotta/coral/rust — the most overused AI accent family'."
+    },
+    {
+      "text": "Flags Inter as a generic font choice",
+      "passed": true,
+      "evidence": "Typography section: '**Inter, and only Inter** (`index.html:8`, `styles.css:8`) — explicitly the most generic possible choice.'"
+    },
+    {
+      "text": "Flags pill-shaped buttons/badges (border-radius: 9999px)",
+      "passed": true,
+      "evidence": "'**Pill everything:** `border-radius: 9999px` on both buttons and the badge (`styles.css:51, 69, 105`); `rounded-full` on the pricing button and \"Most Popular\" pill'."
+    },
+    {
+      "text": "Flags 'transition: all 0.3s ease' as a generic motion pattern",
+      "passed": true,
+      "evidence": "'Combined with `transition: all 0.3s ease` repeated verbatim six times — motion by reflex, not by intent.'"
+    },
+    {
+      "text": "Flags the purple/indigo gradient Tailwind classes in PricingCard.jsx (scans JSX, not just CSS)",
+      "passed": true,
+      "evidence": "Findings table: '`from-purple-500 to-indigo-600` popular card + `from-purple-500 to-indigo-500` button | `PricingCard.jsx:6, 31` | The purple-gradient-on-white cliché'."
+    },
+    {
+      "text": "Flags emoji used as icons and/or sparkle-emoji AI branding",
+      "passed": true,
+      "evidence": "'**Emoji as icons:** ✨ logo, 🚀 badge, ⚡🤝📊✨ feature icons, ✅ pricing checkmarks, ❤️ footer ... the loudest \"no designer touched this\" signal'."
+    },
+    {
+      "text": "Cites specific evidence (file names with line numbers or selectors/classes) for findings",
+      "passed": true,
+      "evidence": "Line-numbered citations throughout, e.g. '`styles.css:9, 19, 146`', '`styles.css:89–91`', '`PricingCard.jsx:6, 31`', '`index.html:8`'."
+    },
+    {
+      "text": "Proposes a concrete redesign direction with named fonts and specific color values, not vague advice like 'be bold'",
+      "passed": false,
+      "evidence": "Specific color values are given ('#0f1115 ink on #fafafa', 'cobalt #1d4ed8-family blue'), but no fonts are named: the typography advice is only 'Pair a characterful display face ... e.g., a sharp grotesque or a serif with real personality' — no specific typeface names anywhere in the report."
+    },
+    {
+      "text": "Delivers a report without rewriting the site's files",
+      "passed": true,
+      "evidence": "outputs/ contains only audit-report.md; no rewritten index.html, styles.css, or PricingCard.jsx. The report is an audit with recommendations, not a rewrite."
+    }
+  ]
+}

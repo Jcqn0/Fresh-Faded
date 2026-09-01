@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Driftwood Surfboards — Hand-shaped in Ventura, CA</title>
+<meta name="description" content="Custom surfboards shaped by hand in Ventura, California. About forty boards a year. Six-month wait. Worth it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     DRIFTWOOD — shaper's ledger aesthetic
+     foam white / kelp ink / one resin-green accent
+     ============================================================ */
+
+  :root {
+    /* color */
+    --foam: #F2F3EF;         /* cool foam white, not cream */
+    --foam-2: #E7EAE3;       /* panel */
+    --ink: #1A2622;          /* kelp ink */
+    --ink-soft: #2C3B35;
+    --pencil: #5E6863;       /* graphite annotations, 5.1:1 on foam */
+    --resin: #0E5F51;        /* deep sea-glass green, 6.8:1 on foam */
+    --resin-bright: #8CD0BE; /* accent on dark */
+    --rule: #C9CEC5;
+    --dark: #142019;         /* the bay at night */
+    --dark-2: #1B2A22;
+    --dark-text: #ECF1EB;
+    --dark-pencil: #9DAAA0;
+
+    /* type */
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Instrument Sans", "Helvetica Neue", sans-serif;
+    --mono: "Spline Sans Mono", "SFMono-Regular", monospace;
+
+    /* fluid scale */
+    --text-xs: clamp(0.6875rem, 0.65rem + 0.2vw, 0.75rem);
+    --text-sm: clamp(0.8125rem, 0.75rem + 0.25vw, 0.875rem);
+    --text-base: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+    --text-xl: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
+    --text-2xl: clamp(2rem, 1.4rem + 2.8vw, 3.5rem);
+    --text-hero: clamp(2.625rem, 1.5rem + 5.5vw, 5.5rem);
+
+    /* space (8pt base) */
+    --s-1: 8px;  --s-2: 16px; --s-3: 24px; --s-4: 32px;
+    --s-6: 48px; --s-8: 64px; --s-12: 96px; --s-16: 128px;
+
+    --edge: clamp(20px, 5vw, 72px);
+    --max: 1240px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    font-family: var(--sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--foam);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--resin); color: var(--foam); }
+
+  a { color: inherit; }
+  :focus-visible {
+    outline: 2px solid var(--resin);
+    outline-offset: 3px;
+  }
+
+  h1, h2, h3 { text-wrap: balance; text-rendering: optimizeLegibility; }
+  p { text-wrap: pretty; }
+
+  .wrap {
+    max-width: var(--max);
+    margin-inline: auto;
+    padding-inline: var(--edge);
+  }
+
+  /* mono pencil-spec labels */
+  .spec {
+    font-family: var(--mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pencil);
+  }
+
+  /* ---------- header ---------- */
+
+  .topbar {
+    border-bottom: 1px solid var(--ink);
+    background: var(--foam);
+  }
+  .topbar-inner {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-3);
+    padding-block: var(--s-2);
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: clamp(1.375rem, 1.2rem + 1vw, 1.75rem);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .wordmark em { font-style: italic; color: var(--resin); }
+  .topbar .spec a {
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .topbar .spec a:hover { color: var(--resin); border-color: var(--resin); }
+  .topbar-status { display: flex; gap: var(--s-3); align-items: baseline; }
+  .status-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--resin);
+    margin-right: 6px;
+    transform: translateY(-1px);
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    position: relative;
+    border-bottom: 1px solid var(--ink);
+    /* shaping-template graph paper */
+    background-image:
+      linear-gradient(to right, rgba(26,38,34,0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(26,38,34,0.055) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(200px, 320px);
+    gap: var(--s-8);
+    align-items: stretch;
+    padding-block: var(--s-12) 0;
+  }
+  .hero-copy { padding-bottom: var(--s-12); align-self: center; }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--s-4);
+    animation: rise 0.7s ease both;
+  }
+  .hero-eyebrow::before {
+    content: "";
+    width: 40px; height: 1px;
+    background: var(--ink);
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: var(--text-hero);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    max-width: 12ch;
+    animation: rise 0.7s 0.08s ease both;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--resin);
+  }
+
+  .hero-sub {
+    max-width: 46ch;
+    margin-top: var(--s-3);
+    font-size: var(--text-lg);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    animation: rise 0.7s 0.16s ease both;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: var(--s-3);
+    align-items: center;
+    margin-top: var(--s-6);
+    flex-wrap: wrap;
+    animation: rise 0.7s 0.24s ease both;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 28px;
+    background: var(--ink);
+    color: var(--foam);
+    border: 1px solid var(--ink);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn:hover { background: var(--resin); border-color: var(--resin); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+  }
+  .btn-ghost:hover { background: transparent; color: var(--resin); border-color: var(--resin); }
+
+  .hero-note {
+    margin-top: var(--s-3);
+    animation: rise 0.7s 0.32s ease both;
+  }
+
+  /* pencil order note pinned in the grid */
+  .order-card {
+    position: absolute;
+    right: calc(var(--edge) + 300px);
+    bottom: var(--s-6);
+    transform: rotate(-2deg);
+    background: var(--foam);
+    border: 1px solid var(--pencil);
+    padding: var(--s-2) var(--s-3);
+    font-family: var(--mono);
+    font-size: var(--text-xs);
+    line-height: 1.9;
+    color: var(--pencil);
+    box-shadow: 4px 4px 0 rgba(26,38,34,0.12);
+    animation: rise 0.7s 0.5s ease both;
+  }
+  .order-card strong { color: var(--ink); font-weight: 500; }
+
+  /* the board */
+  .hero-board {
+    border-left: 1px solid var(--ink);
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    padding: var(--s-4) var(--s-3);
+    min-height: 560px;
+  }
+  .hero-board svg {
+    width: 100%;
+    height: auto;
+    max-height: 720px;
+    display: block;
+  }
+  .board-outline {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 2;
+    stroke-dasharray: 2400;
+    stroke-dashoffset: 2400;
+    animation: draw 2.4s 0.4s ease-out forwards;
+  }
+  .board-stringer {
+    stroke: var(--pencil);
+    stroke-width: 1;
+    stroke-dasharray: 6 5;
+    opacity: 0;
+    animation: appear 0.6s 2.2s ease forwards;
+  }
+  .board-dim {
+    stroke: var(--resin);
+    stroke-width: 1;
+    opacity: 0;
+    animation: appear 0.6s 2.5s ease forwards;
+  }
+  .board-dim-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    fill: var(--resin);
+    opacity: 0;
+    animation: appear 0.6s 2.5s ease forwards;
+  }
+  .board-pencil-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    fill: var(--pencil);
+    letter-spacing: 0.08em;
+    opacity: 0;
+    animation: appear 0.6s 2.2s ease forwards;
+  }
+
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes appear { to { opacity: 1; } }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .board-outline { stroke-dashoffset: 0; }
+    .board-stringer, .board-dim, .board-dim-label, .board-pencil-label { opacity: 1; }
+  }
+
+  /* ---------- marquee strip ---------- */
+
+  .strip {
+    border-bottom: 1px solid var(--ink);
+    background: var(--foam-2);
+    overflow: hidden;
+    padding-block: 12px;
+  }
+  .strip-track {
+    display: flex;
+    width: max-content;
+    gap: 0;
+    animation: ticker 42s linear infinite;
+  }
+  .strip:hover .strip-track { animation-play-state: paused; }
+  .strip-track span {
+    font-family: var(--mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    padding-inline: 14px;
+  }
+  .strip-track span::after {
+    content: "·";
+    color: var(--resin);
+    margin-left: 28px;
+  }
+  @keyframes ticker { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .strip-track { animation: none; }
+  }
+
+  /* ---------- section scaffolding ---------- */
+
+  section { padding-block: var(--s-16); }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-3);
+    margin-bottom: var(--s-8);
+  }
+  .sec-num {
+    font-family: var(--mono);
+    font-size: var(--text-sm);
+    color: var(--resin);
+  }
+  .sec-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: var(--text-2xl);
+    line-height: 1.05;
+  }
+  .sec-title em { font-style: italic; color: var(--resin); }
+
+  /* scroll reveal — progressive enhancement */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        animation: rise 1s ease both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 42%;
+      }
+    }
+  }
+
+  /* ---------- the bay (dark) ---------- */
+
+  .bay {
+    background: var(--dark);
+    color: var(--dark-text);
+    border-bottom: 1px solid var(--ink);
+  }
+  .bay .spec { color: var(--dark-pencil); }
+  .bay .sec-num { color: var(--resin-bright); }
+  .bay .sec-title em { color: var(--resin-bright); }
+
+  .bay-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: var(--s-12);
+    align-items: start;
+  }
+  .bay-prose p {
+    max-width: 58ch;
+    margin-bottom: var(--s-3);
+    color: #C9D4CC;
+    font-size: var(--text-lg);
+    line-height: 1.65;
+  }
+  .bay-prose p strong { color: var(--dark-text); font-weight: 500; }
+  .bay-sign {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: var(--text-xl);
+    color: var(--dark-text);
+    margin-top: var(--s-4);
+  }
+
+  .tally {
+    border-top: 1px solid var(--dark-2);
+  }
+  .tally-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-3);
+    padding-block: var(--s-3);
+    border-bottom: 1px solid var(--dark-2);
+  }
+  .tally-row dt {
+    font-family: var(--mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dark-pencil);
+  }
+  .tally-row dd {
+    font-family: var(--serif);
+    font-size: var(--text-xl);
+    line-height: 1;
+    color: var(--resin-bright);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  /* ---------- the boards (ledger) ---------- */
+
+  .ledger {
+    border-top: 1px solid var(--ink);
+  }
+  .ledger-row {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 3fr);
+    gap: var(--s-3);
+    align-items: baseline;
+    padding-block: var(--s-4);
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.2s ease;
+  }
+  .ledger-row:hover { background: var(--foam-2); }
+  .ledger-row:hover .ledger-name em { color: var(--resin); }
+
+  .ledger-name {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: var(--text-xl);
+    line-height: 1.1;
+  }
+  .ledger-name em { font-style: italic; transition: color 0.2s ease; }
+  .ledger-name .spec { display: block; margin-top: 6px; }
+
+  .ledger-dims {
+    font-family: var(--mono);
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .ledger-glass {
+    font-family: var(--mono);
+    font-size: var(--text-sm);
+    color: var(--pencil);
+  }
+  .ledger-note {
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+    max-width: 34ch;
+  }
+
+  .ledger-head {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 3fr);
+    gap: var(--s-3);
+    padding-block: var(--s-2);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .ledger-foot {
+    margin-top: var(--s-4);
+    max-width: 60ch;
+    color: var(--ink-soft);
+    font-size: var(--text-sm);
+  }
+  .ledger-foot a { color: var(--resin); text-underline-offset: 3px; }
+
+  /* ---------- process ---------- */
+
+  .process { background: var(--foam-2); border-block: 1px solid var(--ink); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-left: 1px solid var(--ink);
+  }
+  .step {
+    border-right: 1px solid var(--ink);
+    padding: var(--s-4) var(--s-3) var(--s-6);
+    background: var(--foam);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-2);
+    min-height: 260px;
+  }
+  .step-num {
+    font-family: var(--mono);
+    font-size: var(--text-sm);
+    color: var(--resin);
+  }
+  .step h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: var(--text-lg);
+    line-height: 1.15;
+  }
+  .step p {
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .step-wait { background: var(--foam-2); }
+  .step-wait .step-num { color: var(--pencil); }
+
+  /* ---------- waitlist ---------- */
+
+  .waitlist {
+    text-align: left;
+    position: relative;
+    background-image:
+      linear-gradient(to right, rgba(26,38,34,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(26,38,34,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .waitlist-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: var(--s-12);
+    align-items: end;
+  }
+  .waitlist h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: var(--text-2xl);
+    line-height: 1.05;
+    max-width: 16ch;
+  }
+  .waitlist h2 em { font-style: italic; color: var(--resin); }
+  .waitlist-body {
+    margin-top: var(--s-3);
+    max-width: 52ch;
+    color: var(--ink-soft);
+  }
+  .waitlist-cta { margin-top: var(--s-6); display: flex; gap: var(--s-3); flex-wrap: wrap; align-items: center; }
+
+  .slot-card {
+    border: 1px solid var(--ink);
+    background: var(--foam);
+    box-shadow: 6px 6px 0 rgba(14,95,81,0.18);
+  }
+  .slot-card-head {
+    border-bottom: 1px solid var(--ink);
+    padding: var(--s-2) var(--s-3);
+    font-family: var(--mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pencil);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-2);
+  }
+  .slot-card-body { padding: var(--s-3); }
+  .slot-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s-2);
+    padding-block: 10px;
+    border-bottom: 1px dashed var(--rule);
+    font-family: var(--mono);
+    font-size: var(--text-sm);
+    font-variant-numeric: tabular-nums;
+  }
+  .slot-line:last-child { border-bottom: 0; }
+  .slot-line .k { color: var(--pencil); }
+  .slot-line .v { color: var(--ink); }
+  .slot-line .v.resin { color: var(--resin); font-weight: 500; }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    background: var(--dark);
+    color: var(--dark-text);
+    padding-block: var(--s-8);
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--s-6);
+    align-items: start;
+  }
+  .foot-mark {
+    font-family: var(--serif);
+    font-size: var(--text-xl);
+  }
+  .foot-mark em { font-style: italic; color: var(--resin-bright); }
+  footer .spec { color: var(--dark-pencil); display: block; margin-bottom: var(--s-1); }
+  footer p, footer address {
+    font-style: normal;
+    font-size: var(--text-sm);
+    color: #C9D4CC;
+    line-height: 1.7;
+  }
+  footer a {
+    color: var(--dark-text);
+    text-underline-offset: 3px;
+    text-decoration-color: var(--resin-bright);
+  }
+  footer a:hover { color: var(--resin-bright); }
+  .foot-bottom {
+    margin-top: var(--s-8);
+    padding-top: var(--s-3);
+    border-top: 1px solid var(--dark-2);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--s-3);
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dark-pencil);
+  }
+
+  /* ============================================================
+     responsive
+     ============================================================ */
+
+  @media (max-width: 1080px) {
+    .steps { grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); }
+    .step { border-bottom: 1px solid var(--ink); min-height: 0; }
+    .order-card { display: none; }
+  }
+
+  @media (max-width: 900px) {
+    .bay-grid,
+    .waitlist-inner { grid-template-columns: 1fr; gap: var(--s-8); }
+    .ledger-head { display: none; }
+    .ledger-row {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s-2) var(--s-3);
+    }
+    .ledger-name { grid-column: 1 / -1; }
+    .ledger-note { grid-column: 1 / -1; max-width: 60ch; }
+  }
+
+  @media (max-width: 768px) {
+    section { padding-block: var(--s-12); }
+
+    /* hero: stack + center (grid -> flex, no reserved column) */
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-block: var(--s-8) 0;
+      gap: var(--s-6);
+    }
+    .hero-copy { padding-bottom: 0; }
+    .hero h1 { margin-inline: auto; }
+    .hero-sub { margin-inline: auto; }
+    .hero-eyebrow::before { display: none; }
+    .hero-cta-row { justify-content: center; width: 100%; }
+    .hero-cta-row .btn { width: 100%; max-width: 300px; text-align: center; }
+    .hero-board {
+      border-left: 0;
+      border-top: 1px solid var(--ink);
+      width: 100%;
+      min-height: 0;
+      padding-block: var(--s-4);
+    }
+    .hero-board svg { max-width: 200px; max-height: 480px; margin-inline: auto; }
+
+    .sec-head { flex-direction: column; gap: var(--s-1); }
+
+    .steps { grid-template-columns: 1fr; }
+    .ledger-row { grid-template-columns: 1fr; }
+
+    .waitlist-cta { flex-direction: column; align-items: stretch; }
+    .waitlist-cta .btn { text-align: center; }
+
+    .foot-grid { grid-template-columns: 1fr; }
+    .tally-row dd { font-size: var(--text-lg); }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ============ top bar ============ -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="wordmark" href="#top">Driftwood <em>Surfboards</em></a>
+      <div class="topbar-status">
+        <span class="spec"><span class="status-dot" aria-hidden="true"></span>List open — next slot Jan &rsquo;27</span>
+        <span class="spec"><a href="#list">Get on the list</a></span>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ hero ============ -->
+    <section class="hero" style="padding-block: 0;">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="hero-eyebrow spec">Custom surfboards &mdash; Ventura, California</p>
+          <h1>Forty boards a&nbsp;year. Every one <em>by&nbsp;hand.</em></h1>
+          <p class="hero-sub">
+            I&rsquo;m Walt. I shape surfboards in a two-car shaping bay off Ventura
+            Avenue &mdash; planer, sandpaper, pencil, no machine. There&rsquo;s a
+            six-month wait. That&rsquo;s just how long it takes to do it right.
+          </p>
+          <div class="hero-cta-row">
+            <a class="btn" href="#list">Get on the list</a>
+            <a class="btn btn-ghost" href="#boards">See the boards</a>
+          </div>
+          <p class="hero-note spec">No stock boards. No pop-outs. No rush orders.</p>
+        </div>
+
+        <div class="hero-board" aria-hidden="true">
+          <!-- hand-drawn board outline with pencil dims -->
+          <svg viewBox="0 0 240 780" role="img" aria-label="Outline drawing of a midlength surfboard with pencil dimensions">
+            <!-- outline -->
+            <path class="board-outline"
+              d="M120 24
+                 C150 52 170 160 172 330
+                 C173.5 470 166 620 148 690
+                 C138 728 128 748 120 756
+                 C112 748 102 728 92 690
+                 C74 620 66.5 470 68 330
+                 C70 160 90 52 120 24 Z"/>
+            <!-- stringer -->
+            <line class="board-stringer" x1="120" y1="30" x2="120" y2="750"/>
+            <!-- width dimension at wide point -->
+            <line class="board-dim" x1="68" y1="330" x2="172" y2="330"/>
+            <line class="board-dim" x1="68" y1="322" x2="68" y2="338"/>
+            <line class="board-dim" x1="172" y1="322" x2="172" y2="338"/>
+            <text class="board-dim-label" x="120" y="318" text-anchor="middle">21 &#188;&#8243;</text>
+            <!-- length dimension -->
+            <line class="board-dim" x1="206" y1="24" x2="206" y2="756"/>
+            <line class="board-dim" x1="198" y1="24" x2="214" y2="24"/>
+            <line class="board-dim" x1="198" y1="756" x2="214" y2="756"/>
+            <text class="board-dim-label" x="212" y="390" text-anchor="middle" transform="rotate(90 212 390)">7&#8242;2&#8243;</text>
+            <!-- pencil notes on the blank -->
+            <text class="board-pencil-label" x="120" y="430" text-anchor="middle">2 &#8542;&#8243; THICK</text>
+            <text class="board-pencil-label" x="120" y="452" text-anchor="middle">44.2 L</text>
+            <text class="board-pencil-label" x="120" y="710" text-anchor="middle">NO. 412</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- pencil order note -->
+      <aside class="order-card" aria-label="Current board on the racks">
+        ON THE RACKS &mdash; THIS WEEK<br>
+        <strong>7&#8242;2&#8243; &times; 21 &#188;&#8243; &times; 2 &#8542;&#8243;</strong><br>
+        single fin egg &middot; volan &middot; for J.M., Rincon
+      </aside>
+    </section>
+
+    <!-- ============ marquee strip ============ -->
+    <div class="strip" aria-hidden="true">
+      <div class="strip-track">
+        <span>Shaping since 2009</span><span>Volan glass</span><span>Resin tints</span><span>Hand-foiled fins</span><span>US Blanks foam</span><span>Glassed two blocks away</span><span>Pencil on the stringer</span><span>Board no. 412 on the racks</span>
+        <span>Shaping since 2009</span><span>Volan glass</span><span>Resin tints</span><span>Hand-foiled fins</span><span>US Blanks foam</span><span>Glassed two blocks away</span><span>Pencil on the stringer</span><span>Board no. 412 on the racks</span>
+      </div>
+    </div>
+
+    <!-- ============ the bay ============ -->
+    <section class="bay" id="bay">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-num">01</span>
+          <h2 class="sec-title">The <em>bay</em></h2>
+        </div>
+        <div class="bay-grid">
+          <div class="bay-prose reveal">
+            <p>
+              I started shaping in 2009 because I couldn&rsquo;t afford the board I
+              wanted, and kept going because the third one was better than the one
+              in the shop. Seventeen years later I&rsquo;m still in the same
+              neighborhood, still sweeping foam dust off the same floor.
+            </p>
+            <p>
+              <strong>I shape about forty boards a year.</strong> I could do more if
+              I hired someone or bought a machine, but then they wouldn&rsquo;t be my
+              boards, and you can get those anywhere. Every blank gets skinned,
+              foiled, and finished by me, with your name and your wave written in
+              pencil on the stringer.
+            </p>
+            <p>
+              Most of what I shape gets ridden between the harbor and the county
+              line. If you surf C-Street, the point at Pitas, or Rincon on the good
+              winter days &mdash; I&rsquo;ve shaped for your wave a few hundred times.
+            </p>
+            <p class="bay-sign">&mdash; Walt</p>
+          </div>
+          <dl class="tally reveal">
+            <div class="tally-row"><dt>Boards per year</dt><dd>~40</dd></div>
+            <div class="tally-row"><dt>Current wait</dt><dd>6 mo</dd></div>
+            <div class="tally-row"><dt>Boards shaped to date</dt><dd>412</dd></div>
+            <div class="tally-row"><dt>Shaping machines</dt><dd>0</dd></div>
+            <div class="tally-row"><dt>Blocks from the water</dt><dd>9</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ the boards ============ -->
+    <section id="boards">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-num">02</span>
+          <h2 class="sec-title">The <em>boards</em></h2>
+        </div>
+
+        <div class="ledger reveal">
+          <div class="ledger-head" aria-hidden="true">
+            <span class="spec">Model</span>
+            <span class="spec">Dims</span>
+            <span class="spec">Glassing</span>
+            <span class="spec">What it&rsquo;s for</span>
+          </div>
+
+          <article class="ledger-row">
+            <h3 class="ledger-name"><em>The Pier Rat</em>
+              <span class="spec">Twin-keel fish</span></h3>
+            <p class="ledger-dims">5&#8242;6&#8243;&ndash;6&#8242;2&#8243; &times; 20&ndash;21&#8243;</p>
+            <p class="ledger-glass">4 + 4 / 4 oz &middot; tint optional</p>
+            <p class="ledger-note">For the summer south swells that never quite get there. Flat, fast, forgiving.</p>
+          </article>
+
+          <article class="ledger-row">
+            <h3 class="ledger-name"><em>The C-Street</em>
+              <span class="spec">Single-fin egg &middot; midlength</span></h3>
+            <p class="ledger-dims">6&#8242;8&#8243;&ndash;7&#8242;6&#8243; &times; 21&ndash;21 &#189;&#8243;</p>
+            <p class="ledger-glass">6 + 4 / 6 oz volan</p>
+            <p class="ledger-note">The board I ride most. Paddles like a log, turns off the tail, glides through the flat sections at the point.</p>
+          </article>
+
+          <article class="ledger-row">
+            <h3 class="ledger-name"><em>The Rincon Log</em>
+              <span class="spec">Square-tail noserider</span></h3>
+            <p class="ledger-dims">9&#8242;2&#8243;&ndash;9&#8242;8&#8243; &times; 22 &#189;&ndash;23&#8243;</p>
+            <p class="ledger-glass">Double 8 oz volan &middot; gloss &amp; polish</p>
+            <p class="ledger-note">Fifty-fifty rails, nose concave, heavy on purpose. Built to trim, not to be carried easily.</p>
+          </article>
+
+          <article class="ledger-row">
+            <h3 class="ledger-name"><em>The Overhead</em>
+              <span class="spec">Step-up &middot; round pin</span></h3>
+            <p class="ledger-dims">6&#8242;6&#8243;&ndash;7&#8242;2&#8243; &times; 19 &#189;&ndash;20&#8243;</p>
+            <p class="ledger-glass">6 + 4 / 4 oz &middot; clear only</p>
+            <p class="ledger-note">For the six days a winter when Rincon is doing the thing. You&rsquo;ll be glad you waited.</p>
+          </article>
+        </div>
+
+        <p class="ledger-foot">
+          These are starting points, not a catalog. Every board is shaped to your
+          height, weight, wave, and honesty about your paddling. If you want
+          something that isn&rsquo;t on this list, <a href="#list">ask</a> &mdash;
+          the weird ones are my favorite orders.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ process ============ -->
+    <section class="process" id="process">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-num">03</span>
+          <h2 class="sec-title">How it <em>works</em></h2>
+        </div>
+      </div>
+      <div class="wrap reveal">
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">01</span>
+            <h3>We talk</h3>
+            <p>Call, email, or come by the bay. Bring your current board. I&rsquo;ll ask where you surf, how often, and what you want the board to do that your last one didn&rsquo;t.</p>
+          </div>
+          <div class="step step-wait">
+            <span class="step-num">02</span>
+            <h3>You wait</h3>
+            <p>About six months. I take a small deposit and put you in the book. I&rsquo;ll call you a few weeks out to confirm dims &mdash; people change their minds, and that&rsquo;s fine.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">03</span>
+            <h3>I shape</h3>
+            <p>A week of evenings with the planer and the screens. Your dims go on the stringer in pencil. You&rsquo;re welcome to come watch the skinning pass.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">04</span>
+            <h3>Glassing</h3>
+            <p>Laminated two blocks away by the same glasser I&rsquo;ve used for a decade. Volan, tints, and gloss coats take longer. Worth it every time.</p>
+          </div>
+          <div class="step">
+            <span class="step-num">05</span>
+            <h3>Pick-up</h3>
+            <p>You come get it. We look it over together, I tell you how to break it in, and you tell me how it goes at the point. Bring wax.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ waitlist ============ -->
+    <section class="waitlist" id="list">
+      <div class="wrap waitlist-inner">
+        <div class="reveal">
+          <p class="spec" style="margin-bottom: var(--s-3);">The list</p>
+          <h2>The list is the list. <em>No exceptions, no rush fees.</em></h2>
+          <p class="waitlist-body">
+            Email me with your height, weight, where you surf, and what you&rsquo;re
+            riding now. I answer everything myself, usually in the evening after
+            the dust settles. If the surf is good it might take a day or two.
+          </p>
+          <div class="waitlist-cta">
+            <a class="btn" href="mailto:walt@driftwoodsurfboards.com?subject=Get%20me%20in%20the%20book">walt@driftwoodsurfboards.com</a>
+            <a class="btn btn-ghost" href="tel:+18055550163">(805) 555-0163</a>
+          </div>
+          <p class="hero-note spec">Phone goes to a machine. Leave a message &mdash; I&rsquo;m probably covered in foam dust.</p>
+        </div>
+
+        <div class="slot-card reveal" role="group" aria-label="Current waitlist status">
+          <div class="slot-card-head">
+            <span>The book</span>
+            <span>Updated July &rsquo;26</span>
+          </div>
+          <div class="slot-card-body">
+            <div class="slot-line"><span class="k">Next open slot</span><span class="v resin">January 2027</span></div>
+            <div class="slot-line"><span class="k">Names ahead of you</span><span class="v">14</span></div>
+            <div class="slot-line"><span class="k">Deposit</span><span class="v">$200, comes off the board</span></div>
+            <div class="slot-line"><span class="k">Boards, typical</span><span class="v">$950&ndash;$1,600</span></div>
+            <div class="slot-line"><span class="k">Rush orders</span><span class="v">No</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ footer ============ -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <p class="foot-mark">Driftwood <em>Surfboards</em></p>
+          <p style="margin-top: 12px; max-width: 40ch;">
+            Hand-shaped surfboards. Walt Kessler, shaper.
+            Foam dust, salt water, and no hurry since 2009.
+          </p>
+        </div>
+        <div>
+          <span class="spec">The bay</span>
+          <address>
+            Unit C, rear building<br>
+            Off Ventura Ave &amp; Stanley<br>
+            Ventura, CA 93001
+          </address>
+        </div>
+        <div>
+          <span class="spec">Hours</span>
+          <p>
+            By appointment.<br>
+            If the surf&rsquo;s good, I&rsquo;m not here.<br>
+            <a href="https://instagram.com" rel="noopener">@driftwood.vta</a>
+          </p>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 Driftwood Surfboards</span>
+        <span>34.2805&deg; N, 119.2945&deg; W</span>
+        <span>Board no. 412 and counting</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

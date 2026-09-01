@@ -2,7 +2,23 @@
   "permissions": {
     "allow": [
       "Bash(git init *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git config *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "PowerShell(New-Item *)",
+      "PowerShell($root='C:\\\\Users\\\\jcqnp\\\\OneDrive\\\\Desktop\\\\frsh n faded'; $files=@\\(\"$root\\\\assets\\\\marble-card-bg.webp\",\"$root\\\\assets\\\\marble-modal-bg.webp\",\"$root\\\\assets\\\\featured\\\\slide-1.webp\",\"$root\\\\assets\\\\featured\\\\slide-2.webp\",\"$root\\\\assets\\\\featured\\\\slide-3.webp\"\\); $missing=$files|Where-Object{ -not \\(Test-Path $_\\)}; if\\($missing\\){ Write-Host 'Missing:' $missing } else { Write-Host 'All assets exist' })",
+      "PowerShell(git *)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(curl *)",
+      "Bash(powershell -Command \"Expand-Archive -Path .\\\\claude-skills.zip -DestinationPath .\\\\claude-skills\")",
+      "Bash(dir claude-skills *)",
+      "Bash(powershell -Command \"Compress-Archive -Path .\\\\claude-skills\\\\claude-skills-main\\\\skills\\\\* -DestinationPath claude-skills-all.zip -Force\")",
+      "Bash(mkdir -p .claude/skills)",
+      "Bash(cp -r claude-skills/claude-skills-main/skills/* .claude/skills/)"
     ]
   }
 }

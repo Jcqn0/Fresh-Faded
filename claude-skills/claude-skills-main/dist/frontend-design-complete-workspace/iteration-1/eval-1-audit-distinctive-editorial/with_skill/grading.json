@@ -1,0 +1,29 @@
+{
+  "expectations": [
+    {
+      "text": "Overall verdict is Low likelihood / does NOT read as AI-generated",
+      "passed": true,
+      "evidence": "Verdict section states: 'AI-generated look likelihood: Low (score 0)' and 'This does not read as generic or AI-generated — it reads as a designed editorial object with a clear point of view.'"
+    },
+    {
+      "text": "Recognizes the committed editorial/print aesthetic as intentional (font pairing, sharp geometry, drop cap, marginalia, or colophon mentioned)",
+      "passed": true,
+      "evidence": "'Intentionality test: passes 5/5' covering the Libre Caslon Text / IBM Plex Mono pairing ('editorial voice vs. apparatus'), 'Consistent geometry — zero radii, hairline 1px rules... heavy 6px rules,' plus 'a drop cap via ::first-letter... a baker's-math marginalia note with a ※ reference mark... a colophon that names its own typefaces.'"
+    },
+    {
+      "text": "Does not flag the serif font or the deep-red accent as AI-slop false positives",
+      "passed": true,
+      "evidence": "Explicitly clears them: 'accent is a deep blood red #a41f13... well outside the coral zone' and 'the familiar ingredients here (a serif, a red accent, white background) count as editorial vocabulary, not defaults.'"
+    },
+    {
+      "text": "Does not recommend a wholesale redesign — only minor refinements",
+      "passed": true,
+      "evidence": "Recommended direction section: 'None needed — the direction is already committed and executed. Do not redesign this. The items below are pre-share polish, not aesthetic fixes' (placeholder links, favicon, meta tags, minor grid/clamp guards)."
+    },
+    {
+      "text": "Uses a structured audit format with evidence for any findings",
+      "passed": true,
+      "evidence": "Structured sections (Verdict, Evidence, What's already working, Recommended direction, Fix list) with a tiered signal-check evidence table citing file:line references (e.g. '#a41f13 (styles.css:4)', 'border-inline-start: 1px solid (styles.css:163)'), a hex census, and contrast ratios (~17.5:1, ~7.5:1)."
+    }
+  ]
+}

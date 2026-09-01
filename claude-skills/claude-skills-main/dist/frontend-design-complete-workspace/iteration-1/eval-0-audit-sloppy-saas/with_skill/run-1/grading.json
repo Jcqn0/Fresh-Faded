@@ -1,0 +1,65 @@
+{
+  "expectations": [
+    {
+      "text": "Report gives an explicit overall verdict (AI-generated likelihood High, or equivalent score/rating)",
+      "passed": true,
+      "evidence": "Verdict section: '**AI-generated look likelihood: High (score 32 \u2014 5 Tier-1 signals, 8 Tier-2, 1 Tier-3)**' \u2014 explicit likelihood rating plus a numeric score."
+    },
+    {
+      "text": "Flags the cream/warm off-white background family (#faf8f5 / #fdfcfb)",
+      "passed": true,
+      "evidence": "Evidence table: 'Cream/warm off-white backgrounds (`#faf8f5`, `#fdfcfb`, `#fdf6f3`) | 1 | `styles.css:9` (body), `:19` (navbar), `:146` (cards)'."
+    },
+    {
+      "text": "Flags the terracotta/coral accent family (#c45c48 / #e07860)",
+      "passed": true,
+      "evidence": "Evidence table: 'Terracotta/coral accent family (`#c45c48` \u00d76, `#e07860` \u00d72) | 1 | `styles.css:26, 43, 47, 66, 89, 103`'."
+    },
+    {
+      "text": "Flags Inter as a generic font choice",
+      "passed": true,
+      "evidence": "Evidence table: 'Generic font as the only face (Inter) | 1 | `index.html:8`, `styles.css:8`'; intentionality test: 'one generic sans (Inter, 4 weights) does everything from logo to body'."
+    },
+    {
+      "text": "Flags pill-shaped buttons/badges (border-radius: 9999px)",
+      "passed": true,
+      "evidence": "Evidence table: 'Pill-shaped buttons and badges (`border-radius: 9999px`, `rounded-full`) | 2 | `styles.css:51, 69, 105`; `PricingCard.jsx:11, 28`'."
+    },
+    {
+      "text": "Flags 'transition: all 0.3s ease' as a generic motion pattern",
+      "passed": true,
+      "evidence": "Evidence table: '`transition: all 0.3s ease` as the only motion idea (\u00d76)'; intentionality test calls it 'the only motion idea, repeated six times'."
+    },
+    {
+      "text": "Flags the purple/indigo gradient Tailwind classes in PricingCard.jsx (scans JSX, not just CSS)",
+      "passed": true,
+      "evidence": "Evidence table: 'Purple/indigo gradient (`from-purple-500 to-indigo-600`) | 1 | `PricingCard.jsx:6, 31`'; verdict calls it 'a purple-to-indigo Tailwind gradient card'."
+    },
+    {
+      "text": "Flags emoji used as icons and/or sparkle-emoji AI branding",
+      "passed": true,
+      "evidence": "Two evidence rows: 'Sparkle/rocket emoji branding AI features (\u2728 logo, \ud83d\ude80 badge, \u2728 \"AI-Powered\", \u2728 \"Most Popular\")' and 'Emoji as feature icons (\u26a1 \ud83e\udd1d \ud83d\udcca \u2728, \u2705 checklist bullets)'."
+    },
+    {
+      "text": "Cites specific evidence (file names with line numbers or selectors/classes) for findings",
+      "passed": true,
+      "evidence": "Every evidence-table row carries file:line citations, e.g. '`styles.css:9`', '`index.html:13, 24, 55`', '`PricingCard.jsx:6, 31`'."
+    },
+    {
+      "text": "Proposes a concrete redesign direction with named fonts and specific color values, not vague advice like 'be bold'",
+      "passed": true,
+      "evidence": "Option A names fonts ('display **Familjen Grotesk** 600 + body/UI **IBM Plex Sans**, with **IBM Plex Mono** for numbers') and specific hexes ('paper `#f2f3f5`, ink `#101318`, hairline `#d4d8de`, accent cobalt `#1f3aff`'); Option B gives a full dark palette ('bg `#0c0f13` ... accent signal-green `#2fe08c`')."
+    },
+    {
+      "text": "Delivers a report without rewriting the site's files",
+      "passed": true,
+      "evidence": "outputs/ contains only audit-report.md; no modified index.html, styles.css, or PricingCard.jsx. Fixes are proposed as a numbered fix list, not implemented."
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "failed": 0,
+    "total": 11,
+    "pass_rate": 1.0
+  }
+}

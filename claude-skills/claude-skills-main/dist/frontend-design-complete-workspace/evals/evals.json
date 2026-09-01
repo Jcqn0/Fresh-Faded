@@ -1,0 +1,26 @@
+{
+  "skill_name": "frontend-design-complete",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "audit-sloppy-saas",
+      "prompt": "Here's the source for our startup's landing page (index.html, styles.css, and one React component PricingCard.jsx). My cofounder says it 'looks like every AI-generated site out there' and I want a second opinion. Can you scan the design and tell me: does it actually look AI-generated? What specifically makes it look that way? And how would we make it distinctive? Don't rewrite everything yet — give me an audit report first with your findings.",
+      "expected_output": "A structured audit report that flags the concrete AI-slop signals in the fixture (cream #faf8f5 background, terracotta #c45c48/#e07860 palette, Inter font, pill buttons/badges via border-radius 9999px, left-border accent cards, warm tinted shadows with hover-lift, 'transition: all 0.3s ease' everywhere, emoji-as-icons, sparkle emoji on AI feature, purple gradient Tailwind classes rounded-2xl/shadow-lg in PricingCard.jsx, generic 'Supercharge your workflow' copy), gives an overall verdict/score, cites file:line evidence, and proposes a concrete distinctive redesign direction rather than vague 'be bold' advice.",
+      "files": ["fixtures/sloppy-app/index.html", "fixtures/sloppy-app/styles.css", "fixtures/sloppy-app/PricingCard.jsx"]
+    },
+    {
+      "id": 1,
+      "eval_name": "audit-distinctive-editorial",
+      "prompt": "We just finished the site for our print journal (index.html and styles.css attached). Before we share it around, can you review the design and check whether it reads as generic or AI-generated? Give me an honest design audit.",
+      "expected_output": "An audit that recognizes the committed editorial/print aesthetic (Libre Caslon + IBM Plex Mono pairing, black/white/deep-red palette, sharp geometry, drop cap, marginalia, baker's-math colophon details) as intentional and distinctive, returns a LOW AI-generated likelihood, does NOT false-positive on the serif font or red accent, and offers only minor refinements instead of recommending a redesign.",
+      "files": ["fixtures/distinctive-app/index.html", "fixtures/distinctive-app/styles.css"]
+    },
+    {
+      "id": 2,
+      "eval_name": "create-surf-landing",
+      "prompt": "Build a single-page marketing site for 'Driftwood', a small-batch surfboard shaper in Ventura, CA. He hand-shapes maybe 40 boards a year and has a 6-month waitlist. Single index.html with embedded CSS is fine. Make it feel like him, not like a startup.",
+      "expected_output": "A working index.html with a distinctive, committed aesthetic appropriate to a craft surfboard shaper. Must avoid the skill's own banned slop patterns: no Inter/Roboto/system fonts, no cream+terracotta palette, no purple gradients, no pill buttons everywhere, no uniform 'transition: all 0.3s ease', no emoji-as-icons. Should be mobile responsive.",
+      "files": []
+    }
+  ]
+}

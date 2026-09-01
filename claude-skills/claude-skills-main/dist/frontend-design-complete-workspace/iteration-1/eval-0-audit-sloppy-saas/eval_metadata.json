@@ -1,0 +1,18 @@
+{
+  "eval_id": 0,
+  "eval_name": "audit-sloppy-saas",
+  "prompt": "Here's the source for our startup's landing page (index.html, styles.css, and one React component PricingCard.jsx). My cofounder says it 'looks like every AI-generated site out there' and I want a second opinion. Can you scan the design and tell me: does it actually look AI-generated? What specifically makes it look that way? And how would we make it distinctive? Don't rewrite everything yet — give me an audit report first with your findings.",
+  "assertions": [
+    "Report gives an explicit overall verdict (AI-generated likelihood High, or equivalent score/rating)",
+    "Flags the cream/warm off-white background family (#faf8f5 / #fdfcfb)",
+    "Flags the terracotta/coral accent family (#c45c48 / #e07860)",
+    "Flags Inter as a generic font choice",
+    "Flags pill-shaped buttons/badges (border-radius: 9999px)",
+    "Flags 'transition: all 0.3s ease' as a generic motion pattern",
+    "Flags the purple/indigo gradient Tailwind classes in PricingCard.jsx (scans JSX, not just CSS)",
+    "Flags emoji used as icons and/or sparkle-emoji AI branding",
+    "Cites specific evidence (file names with line numbers or selectors/classes) for findings",
+    "Proposes a concrete redesign direction with named fonts and specific color values, not vague advice like 'be bold'",
+    "Delivers a report without rewriting the site's files"
+  ]
+}

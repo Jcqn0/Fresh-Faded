@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "audit-distinctive-editorial",
+  "prompt": "We just finished the site for our print journal (index.html and styles.css attached). Before we share it around, can you review the design and check whether it reads as generic or AI-generated? Give me an honest design audit.",
+  "assertions": [
+    "Overall verdict is Low likelihood / does NOT read as AI-generated",
+    "Recognizes the committed editorial/print aesthetic as intentional (font pairing, sharp geometry, drop cap, marginalia, or colophon mentioned)",
+    "Does not flag the serif font or the deep-red accent as AI-slop false positives",
+    "Does not recommend a wholesale redesign — only minor refinements",
+    "Uses a structured audit format with evidence for any findings"
+  ]
+}

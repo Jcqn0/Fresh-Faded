@@ -210,39 +210,6 @@ function renderTimeSlots() {
     });
 }
 
-// Initialize lightweight featured carousel
-function initCarousel() {
-    const carousel = document.querySelector('.featured-carousel');
-    if (!carousel) return;
-    const slidesContainer = carousel.querySelector('.carousel-slides');
-    const slides = carousel.querySelectorAll('.slide');
-    const prevBtn = carousel.querySelector('.carousel-prev');
-    const nextBtn = carousel.querySelector('.carousel-next');
-
-    let current = 0;
-    const total = slides.length;
-
-    function updateSlide() {
-        const offset = -(current * 100);
-        slidesContainer.style.transform = `translateX(${offset}%)`;
-    }
-
-    prevBtn?.addEventListener('click', () => {
-        current = (current - 1 + total) % total;
-        updateSlide();
-    });
-
-    nextBtn?.addEventListener('click', () => {
-        current = (current + 1) % total;
-        updateSlide();
-    });
-
-    // Auto‑rotate every 5 seconds
-    setInterval(() => {
-        current = (current + 1) % total;
-        updateSlide();
-    }, 5000);
-}
 
 function confirmBooking() {
     const name = document.getElementById("client-name").value.trim();
@@ -272,7 +239,6 @@ function confirmBooking() {
 document.addEventListener("DOMContentLoaded", () => {
     renderBarbers();
     renderServices();
-    initCarousel();
 
     // Modal close controls
     document.querySelector(".close-button").addEventListener("click", closeBooking);

@@ -1,0 +1,14 @@
+{
+  "eval_id": 2,
+  "eval_name": "create-surf-landing",
+  "prompt": "Build a single-page marketing site for 'Driftwood', a small-batch surfboard shaper in Ventura, CA. He hand-shapes maybe 40 boards a year and has a 6-month waitlist. Single index.html with embedded CSS is fine. Make it feel like him, not like a startup.",
+  "assertions": [
+    "No generic fonts (Inter, Roboto, Arial, Poppins, Space Grotesk) used as the display/body face",
+    "No cream/warm off-white background family and no terracotta/coral accent family",
+    "No purple/indigo gradients",
+    "No 'transition: all' declarations",
+    "Mobile responsive (media queries and/or fluid clamp() sizing present)",
+    "Includes prefers-reduced-motion handling",
+    "Context-specific content (shaper/waitlist/Ventura details), not interchangeable startup copy"
+  ]
+}
