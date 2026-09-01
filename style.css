@@ -118,16 +118,14 @@ h1, h2, h3 {
 .hero::after {
     content: "";
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 20%;
-    height: 20%;
+    inset: 0; /* cover full hero area */
     pointer-events: none;
     background: url('assets/honeycomb-grey.svg') repeat;
     background-size: 60px 52px;
     opacity: 0.15;
     z-index: -1; /* behind hero content */
-    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    /* Triangle covering bottom‑right corner, right‑angle at corner, non‑isosceles */
+    clip-path: polygon(100% 0%, 100% 100%, 30% 100%);
 }
 
 /* Ensure hero inner elements appear above the overlay */
